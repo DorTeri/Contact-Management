@@ -99,22 +99,26 @@ void addContact()
 }
 void searchContact()
 {
+    bool found = false;
     ifstream myfile("number.txt");
     string keyword;
     cout << "\n\tEnter Name To Search :";
     cin >> keyword;
-    while(myfile >> fname >> lname >> phone_num)
+    while (myfile >> fname >> lname >> phone_num)
     {
-        if(keyword == fname || keyword == lname)
+        if (keyword == fname || keyword == lname)
         {
             system("cls");
             cout << "\n\n\n\t\tContact details..";
             cout << "\n\n\tFirst Name : " << fname;
             cout << "\n\tLast Name : " << lname;
             cout << "\n\tPhone Number : " << phone_num;
+            found = true;
             break;
         }
     }
+    if (!(found))
+        cout << "\n\tNo Such Contact Found";
 }
 
 bool check_digits(string x)
