@@ -78,7 +78,8 @@ void addContact()
         {
             if(phone.is_open())
             {
-
+                phone << fname << " " << lname << " " << phone_num << endl;
+                cout << "\n\tContact Saced Successfully !";
             }
             else
             {
@@ -90,6 +91,7 @@ void addContact()
     {
         cout << "\n\tA Phone Number Must Contain 10 Digits.";
     }
+    phone.close();
 }
 void searchContact()
 {
