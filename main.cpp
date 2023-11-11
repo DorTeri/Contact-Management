@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <fstream>
 using namespace std;
 
 // global variables
@@ -62,6 +63,7 @@ void help()
 
 void addContact()
 {
+    ofstream phone("number.txt" , ios::app);
     system("cls");
     cout << "\n\n\tEnter First Name : ";
     cin >> fname;
@@ -72,9 +74,16 @@ void addContact()
 
     if (check_digits(phone_num))
     {
-        if(check_numbers())
+        if(check_numbers(phone_num))
         {
+            if(phone.is_open())
+            {
 
+            }
+            else
+            {
+                cout << "\n\tError Opening File !";
+            }
         }
     }
     else
@@ -103,6 +112,7 @@ bool check_numbers(string x)
         if(!(int(x[i]) >= 48 && int(x[i]) <= 57))
         {
             check = false;
+            break;
         }
     }
 
