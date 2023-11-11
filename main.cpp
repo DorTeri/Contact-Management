@@ -33,18 +33,20 @@ int main()
         break;
     case 2:
         searchContact();
+        cout << "\n\tPress Any Key To Continue..";
+        getch();
         break;
     case 3:
         help();
         break;
     case 4:
         self_exit();
+        getch();
         break;
     default:
         cout << "\n\n\tInvalid Input !";
         cout << "\n\tPress Any Key To Continue..";
         getch();
-        main();
     }
     return 0;
 }
