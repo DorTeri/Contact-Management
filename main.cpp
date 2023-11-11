@@ -14,7 +14,7 @@ void searchContact();
 void help();
 void self_exit();
 bool check_digits(string);
-bool check_numbers();
+bool check_numbers(string);
 
 int main()
 {
@@ -63,7 +63,7 @@ void help()
 
 void addContact()
 {
-    ofstream phone("number.txt" , ios::app);
+    ofstream phone("number.txt", ios::app);
     system("cls");
     cout << "\n\n\tEnter First Name : ";
     cin >> fname;
@@ -74,9 +74,9 @@ void addContact()
 
     if (check_digits(phone_num))
     {
-        if(check_numbers(phone_num))
+        if (check_numbers(phone_num))
         {
-            if(phone.is_open())
+            if (phone.is_open())
             {
                 phone << fname << " " << lname << " " << phone_num << endl;
                 cout << "\n\tContact Saced Successfully !";
@@ -85,6 +85,10 @@ void addContact()
             {
                 cout << "\n\tError Opening File !";
             }
+        }
+        else
+        {
+            cout << "\n\tA Phone Number Must Contain Numbers Only !";
         }
     }
     else
@@ -111,7 +115,7 @@ bool check_numbers(string x)
 
     for (int i = 0; i < x.length(); i++)
     {
-        if(!(int(x[i]) >= 48 && int(x[i]) <= 57))
+        if (!(int(x[i]) >= 48 && int(x[i]) <= 57))
         {
             check = false;
             break;
@@ -119,5 +123,4 @@ bool check_numbers(string x)
     }
 
     return check;
-    
 }
